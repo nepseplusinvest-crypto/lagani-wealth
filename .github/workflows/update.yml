@@ -1,9 +1,12 @@
 name: Update Market Data
 
 on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
   schedule:
     - cron: '15 9 * * 1-5'
-  workflow_dispatch:
 
 permissions:
   contents: write
@@ -27,5 +30,5 @@ jobs:
           git config --global user.name "bot"
           git config --global user.email "bot@mail.com"
           git add data.json
-          git commit -m "market update" || echo "no change"
+          git commit -m "update data" || echo "no change"
           git push
