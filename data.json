@@ -1,1 +1,38 @@
-{"all": [], "gainers": [], "losers": []}
+{
+  "all": [
+    {
+      "symbol": "NABIL",
+      "price": 500,
+      "change": 1.2
+    },
+    {
+      "symbol": "NICA",
+      "price": 450,
+      "change": -0.5
+    }
+  ],
+  "gainers": [
+    {
+      "symbol": "NABIL",
+      "price": 500,
+      "change": 1.2
+    },
+    {
+      "symbol": "NICA",
+      "price": 450,
+      "change": -0.5
+    }
+  ],
+  "losers": [
+    {
+      "symbol": "NICA",
+      "price": 450,
+      "change": -0.5
+    },
+    {
+      "symbol": "NABIL",
+      "price": 500,
+      "change": 1.2
+    }
+  ]
+}
