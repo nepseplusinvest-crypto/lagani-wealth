@@ -8,8 +8,29 @@ body {
 
 h1 {
   text-align: center;
-  padding: 15px;
+  padding: 10px;
   color: #38bdf8;
+}
+
+p {
+  text-align: center;
+  color: #94a3b8;
+}
+
+#status {
+  text-align: center;
+  font-size: 12px;
+  color: #94a3b8;
+  margin-bottom: 10px;
+}
+
+input {
+  display: block;
+  margin: 10px auto;
+  padding: 8px;
+  width: 80%;
+  border-radius: 6px;
+  border: none;
 }
 
 .container {
@@ -32,20 +53,5 @@ h1 {
   border-bottom: 1px solid #334155;
 }
 
-.symbol {
-  font-weight: bold;
-}
-
 .green { color: #22c55e; }
 .red { color: #ef4444; }
-
-#status {
-  text-align: center;
-  font-size: 12px;
-  color: #94a3b8;
-  margin-bottom: 10px;
-}
-
-.empty {
-  color: #94a3b8;
-}
