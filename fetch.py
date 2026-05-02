@@ -4,26 +4,47 @@ import json
 url = "https://nepsealpha.com/trading/1/day"
 headers = {"User-Agent": "Mozilla/5.0"}
 
-res = requests.get(url, headers=headers)
-data = res.json()
+try:
+    res = requests.get(url, headers=headers, timeout=10)
 
-stocks = []
+    # check if response is valid
+    if res.status_code != 200:
+        raise Exception("API not working")
 
-for i in data:
-    stocks.append({
-        "symbol": i.get("symbol",""),
-        "price": float(i.get("ltp",0)),
-        "change": float(i.get("percent_change",0))
-    })
+    try:
+        data = res.json()
+    except:
+        data = []
 
-gainers = sorted(stocks, key=lambda x: x["change"], reverse=True)[:10]
-losers = sorted(stocks, key=lambda x: x["change"])[:10]
+    stocks = []
 
-output = {
-    "all": stocks,
-    "gainers": gainers,
-    "losers": losers
-}
+    for i in data:
+        try:
+            stocks.append({
+                "symbol": i.get("symbol",""),
+                "price": float(i.get("ltp",0)),
+                "change": float(i.get("percent_change",0))
+            })
+        except:
+            continue
 
-with open("data.json", "w") as f:
-    json.dump(output, f, indent=2)
+    gainers = sorted(stocks, key=lambda x: x["change"], reverse=True)[:10]
+    losers = sorted(stocks, key=lambda x: x["change"])[:10]
+
+    output = {
+        "all": stocks,
+        "gainers": gainers,
+        "losers": losers
+    }
+
+    with open("data.json", "w") as f:
+        json.dump(output, f, indent=2)
+
+    print("SUCCESS:", len(stocks))
+
+except Exception as e:
+    print("ERROR:", e)
+
+    # fallback so site never breaks
+    with open("data.json", "w") as f:
+        json.dump({"all":[], "gainers":[], "losers":[]}, f)
