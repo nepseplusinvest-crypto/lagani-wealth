@@ -37,7 +37,7 @@ function render(id, list){
   document.getElementById(id).innerHTML = html;
 }
 
-/* 🔥 HISTORY FEATURE FIX */
+/* 🔥 HISTORY FUNCTION */
 function loadHistory(){
   let date = document.getElementById("datePick").value;
 
@@ -48,7 +48,7 @@ function loadHistory(){
 
   fetch(`./history-${date}.json`)
   .then(res => {
-    if(!res.ok) throw new Error("No data");
+    if(!res.ok) throw new Error("No file");
     return res.json();
   })
   .then(d => {
@@ -60,6 +60,6 @@ function loadHistory(){
       "History loaded: " + date;
   })
   .catch(() => {
-    alert("No data for this date");
+    alert("No history data found for this date");
   });
 }
