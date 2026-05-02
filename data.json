@@ -9,6 +9,11 @@
       "symbol": "NICA",
       "price": 450,
       "change": -0.5
+    },
+    {
+      "symbol": "HBL",
+      "price": 600,
+      "change": 0.8
     }
   ],
   "gainers": [
@@ -16,6 +21,11 @@
       "symbol": "NABIL",
       "price": 500,
       "change": 1.2
+    },
+    {
+      "symbol": "HBL",
+      "price": 600,
+      "change": 0.8
     },
     {
       "symbol": "NICA",
@@ -28,6 +38,11 @@
       "symbol": "NICA",
       "price": 450,
       "change": -0.5
+    },
+    {
+      "symbol": "HBL",
+      "price": 600,
+      "change": 0.8
     },
     {
       "symbol": "NABIL",
