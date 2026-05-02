@@ -1,25 +1,38 @@
-let globalData = [];
-
-fetch('data.json')
-.then(r => r.json())
+fetch('./data.json')
+.then(res => res.json())
 .then(d => {
-  globalData = d.all;
-  render("all", globalData);
   render("gainers", d.gainers);
   render("losers", d.losers);
+  render("all", d.all);
+
+  document.getElementById("status").innerText =
+    "Last updated: " + new Date().toLocaleString();
+})
+.catch(() => {
+  document.getElementById("status").innerText =
+    "Using cached data...";
 });
 
 function render(id, list){
   let html = "";
+
+  if(!list || list.length === 0){
+    document.getElementById(id).innerHTML =
+      "<div class='empty'>No data available</div>";
+    return;
+  }
+
   list.forEach(s => {
     html += `
       <div class="stock">
-        <span>${s.symbol}</span>
-        <span class="${s.change >=0 ? 'green':'red'}">
-          ${s.price} (${s.change}%)
-        </span>
+        <div class="symbol">${s.symbol}</div>
+        <div class="price">${s.price}</div>
+        <div class="${s.change >= 0 ? 'green' : 'red'}">
+          ${s.change}%
+        </div>
       </div>
     `;
   });
+
   document.getElementById(id).innerHTML = html;
 }
