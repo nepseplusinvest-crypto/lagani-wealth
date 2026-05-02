@@ -1,53 +1,11 @@
 {
   "all": [
     {
-      "symbol": "NABIL",
-      "price": 500,
-      "change": 1.2
-    },
-    {
-      "symbol": "NICA",
-      "price": 450,
-      "change": -0.5
-    },
-    {
-      "symbol": "HBL",
-      "price": 600,
-      "change": 0.8
+      "symbol": "TEST",
+      "price": 100,
+      "change": 1
     }
   ],
-  "gainers": [
-    {
-      "symbol": "NABIL",
-      "price": 500,
-      "change": 1.2
-    },
-    {
-      "symbol": "HBL",
-      "price": 600,
-      "change": 0.8
-    },
-    {
-      "symbol": "NICA",
-      "price": 450,
-      "change": -0.5
-    }
-  ],
-  "losers": [
-    {
-      "symbol": "NICA",
-      "price": 450,
-      "change": -0.5
-    },
-    {
-      "symbol": "HBL",
-      "price": 600,
-      "change": 0.8
-    },
-    {
-      "symbol": "NABIL",
-      "price": 500,
-      "change": 1.2
-    }
-  ]
+  "gainers": [],
+  "losers": []
 }
